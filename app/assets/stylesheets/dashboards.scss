@@ -1,3 +1,11 @@
-// Place all the styles related to the Dashboards controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#error_explanation {
+  background-color: #f2dede;
+  color: #a94442;
+  text-align: left;
+  padding: 5px 20px;
+  margin-bottom: 30px;
+}
+
+#error_explanation h2 {
+  font-size: 150%;
+}
