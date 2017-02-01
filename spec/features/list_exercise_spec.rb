@@ -31,5 +31,16 @@ RSpec.feature "List Exercize" do
 
       end
     end
+    scenario "user has no workouts" do
+
+      @john.exercises.delete_all
+      login_as(@john)
+      visit "/"
+      click_link "My Lounge"
+
+      expect(page).to have_content("You have no workouts logged yet")
+
+
+    end
   end
 end
