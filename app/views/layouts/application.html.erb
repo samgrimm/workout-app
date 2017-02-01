@@ -25,6 +25,9 @@
           </li>
 
           <% if user_signed_in? %>
+            <li class="nav-item">
+              <%= link_to 'My Lounge', user_exercises_path(current_user), class:"nav-link" %>
+            </li>
             <span class="navbar-text">
               Signed in as <%= current_user.email %>
             </span>
@@ -37,7 +40,7 @@
             </li>
             <li class="nav-item">
               <%= link_to 'Sign in', new_user_session_path, class:"nav-link" %>
-            </li>  
+            </li>
           <% end %>
 
         </ul>
