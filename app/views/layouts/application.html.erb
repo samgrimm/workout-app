@@ -23,7 +23,23 @@
           <li class="nav-item">
             <%= link_to 'Athletes Den', "#", class:"nav-link" %>
           </li>
-          
+
+          <% if user_signed_in? %>
+            <span class="navbar-text">
+              Signed in as <%= current_user.email %>
+            </span>
+            <li class="nav-item">
+              <%= link_to 'Logout', destroy_user_session_path, method: :delete, class:"nav-link" %>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to 'Sign Up', new_user_registration_path, class:"nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Sign in', new_user_session_path, class:"nav-link" %>
+            </li>  
+          <% end %>
+
         </ul>
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="text" placeholder="Search">
@@ -31,6 +47,15 @@
         </form>
       </div>
     </nav>
+    <div class="row">
+      <div class="col-md-12">
+        <% flash.each do |key, msg| %>
+          <div class="text-center alert alert-<%= key == 'notice' ? 'success' : 'danger' %>">
+            <%= msg %>
+        </div>
+        <% end %>
+      </div>
+    </div>
     <%= yield %>
   </body>
 </html>
