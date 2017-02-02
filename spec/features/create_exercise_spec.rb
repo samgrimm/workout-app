@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.feature "Create Exercize" do
   before do
-    @john = User.create!(email: "john@example.com", password: "foobar", password_confirmation: "foobar")
+    @john = User.create!(email: "john@example.com", first_name: "John", last_name: "Doe", password: "foobar", password_confirmation: "foobar")
   end
   describe "visiting the homepage" do
     context "with valid inputs" do

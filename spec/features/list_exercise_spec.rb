@@ -2,11 +2,11 @@ require "rails_helper"
 
 RSpec.feature "List Exercize" do
   before do
-    @john = User.create!(email: "john@example.com", password: "foobar", password_confirmation: "foobar")
+    @john = User.create!(email: "john@example.com", first_name: "John", last_name: "Doe", password: "foobar", password_confirmation: "foobar")
     @e1 = @john.exercises.create(duration_in_min: 20, workout: "My great workout", workout_date: Date.today)
     @e2 = @john.exercises.create(duration_in_min: 30, workout: "Another amazing workout", workout_date: 2.days.ago)
     @e3 = @john.exercises.create(duration_in_min: 10, workout: "Third amazing workout", workout_date: 8.days.ago)
-    @fred = User.create!(email: "fred@example.com", password: "foobar", password_confirmation: "foobar")
+    @fred = User.create!(email: "fred@example.com", first_name: "fred", last_name: "flintstone", password: "foobar", password_confirmation: "foobar")
     @e1 = @fred.exercises.create(duration_in_min: 20, workout: "Fred's workout", workout_date: Date.today)
     @e2 = @fred.exercises.create(duration_in_min: 30, workout: "Fred working out", workout_date: 2.days.ago)
   end
