@@ -5,6 +5,7 @@ RSpec.feature "List Exercize" do
     @john = User.create!(email: "john@example.com", password: "foobar", password_confirmation: "foobar")
     @e1 = @john.exercises.create(duration_in_min: 20, workout: "My great workout", workout_date: Date.today)
     @e2 = @john.exercises.create(duration_in_min: 30, workout: "Another amazing workout", workout_date: 2.days.ago)
+    @e3 = @john.exercises.create(duration_in_min: 10, workout: "Third amazing workout", workout_date: 8.days.ago)
     @fred = User.create!(email: "fred@example.com", password: "foobar", password_confirmation: "foobar")
     @e1 = @fred.exercises.create(duration_in_min: 20, workout: "Fred's workout", workout_date: Date.today)
     @e2 = @fred.exercises.create(duration_in_min: 30, workout: "Fred working out", workout_date: 2.days.ago)
@@ -28,6 +29,14 @@ RSpec.feature "List Exercize" do
 
         expect(page).not_to have_content("Fred's workout")
         expect(page).not_to have_content("Fred working out")
+
+      end
+      it "does not lists the workouts older than 7 days" do
+        login_as(@john)
+        visit "/"
+        click_link "My Lounge"
+
+        expect(page).not_to have_content("Third amazing workout")
 
       end
     end
