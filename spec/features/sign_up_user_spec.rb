@@ -20,9 +20,11 @@ RSpec.feature "Sign up User" do
 
     click_link "Sign Up"
     fill_in "Email", with: ""
+    fill_in "First name", with: ""
+    fill_in "Last name", with: ""
     fill_in "Password", with: ""
     fill_in "Password confirmation", with: ""
     click_button "Sign up"
-    expect(page).to have_content("2 errors prohibited this user from being saved")
+    expect(page).to have_content("4 errors prohibited this user from being saved")
   end
 end
