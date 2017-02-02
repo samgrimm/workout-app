@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.feature "Create Exercize" do
+RSpec.feature "Edit Exercize" do
   before do
     @john = User.create!(email: "john@example.com", password: "foobar", password_confirmation: "foobar")
     @e = @john.exercises.create(duration_in_min: 40, workout: "PUMP", workout_date: Date.today)
