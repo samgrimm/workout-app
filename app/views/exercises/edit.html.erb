@@ -1,2 +1,12 @@
-<h1>Exercises#edit</h1>
-<p>Find me in app/views/exercises/edit.html.erb</p>
+<h1 class="text-center">Edit Exercise for  <%=current_user.full_name %></h1>
+
+<%= render 'form' %>
+
+<div class="row">
+  <div class="col-12">
+    <div class="col-10 offset-md-1">
+      <%= link_to "Back", user_exercises_path(current_user),
+          class:"btn btn-default" %>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,5 @@
 class ExercisesController < ApplicationController
-  before_action :set_exercise, only: [:show]
+  before_action :set_exercise, only: [:show, :edit, :update]
   def index
     @exercises = current_user.exercises
   end
@@ -22,6 +22,12 @@ class ExercisesController < ApplicationController
   end
 
   def update
+    if @exercise.update(exercise_params)
+      redirect_to [current_user, @exercise], notice: "Exercise has been updated"
+    else
+      flash.now[:alert] = "Exercise has not been updated"
+      render 'edit'
+    end
   end
 
   def destroy
